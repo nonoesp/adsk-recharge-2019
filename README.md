@@ -1,6 +1,6 @@
 # Autodesk Recharge 2019
 
-A two-week sprint playing with Docker, Tensorflow, Webpack, Runway, Refinery, Dynamo, and much more.
+A two-week sprint playing with Docker, Tensorflow, Webpack, Runway, Refinery, Dynamo, and much more. (The Docker [Get Started](https://docs.docker.com/get-started/) tutorial was extremely useful to get going.)
 
 ## docker-pix2pix
 
