@@ -1,10 +1,10 @@
 # Autodesk Recharge 2019
 
-A two-week sprint playing with Docker, Tensorflow, Webpack, Runway, Refinery, Dynamo, and much more. (The Docker [Get Started](https://docs.docker.com/get-started/) tutorial was extremely useful to get going.)
+A two-week sprint playing with Docker, Tensorflow, Webpack, Runway, Refinery, Dynamo, and much more.
 
 ## docker-pix2pix
 
-Serve `pix2pix-tensorflow` with Docker. No matter where you are. (Works on Windows, Linux, macOS.)
+Serve `pix2pix-tensorflow` with Docker. No matter where you are. (Works on Windows, Linux, macOS.) The Docker [Get Started](https://docs.docker.com/get-started/) tutorial was extremely useful to get going.
 
 ## dynamo-pix2pix-request
 
