@@ -1,0 +1,2459 @@
+{
+  "Uuid": "5e487375-bed6-409a-a457-25f212991682",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Dynamo 2.0 - 6 - Complex POST request",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "DesignScript.Builtin.Dictionary": {
+        "Key": "DesignScript.Builtin.Dictionary",
+        "Value": "DesignScriptBuiltin.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.ByUrl@string",
+      "Id": "f7efab2c99a34dc686f4bccf702dfec6",
+      "Inputs": [
+        {
+          "Id": "7a75475ed075427f9a972e90c635b52b",
+          "Name": "url",
+          "Description": "The URL to send the request to.\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "16dcbfb4f58e47bbaba35f4473597884",
+          "Name": "WebRequest",
+          "Description": "The request object, ready for execution.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Build a simple GET web request to the specified URL\n\nWebRequest.ByUrl (url: string): WebRequest"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "http://f78a9365.ngrok.io",
+      "Id": "a53001d6315643f398aa0c5093035df4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b6143a4ba16a433a84ae84a7be1d084e",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.Content",
+      "Id": "e2dea4f9a69e41d9967e41a4d7f22b2c",
+      "Inputs": [
+        {
+          "Id": "42daebefefdd44b883da22824a4658f2",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5f8e4345dbd044259389a5265f21ff9c",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.Content: string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "44b3d19da21c45e6b83a96f4aae088a6",
+      "Inputs": [
+        {
+          "Id": "66154a8ff80a4c6db7befe1f709dd7f4",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "030514ea1152491297cd33fc97a268c3",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.SetMethod@string",
+      "Id": "0106f68db94c4f7cad41e402ed896c4d",
+      "Inputs": [
+        {
+          "Id": "c0c96b29d11948d4801a02c5b702dec9",
+          "Name": "webRequest",
+          "Description": "DynaWeb.WebRequest",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b64de7ccab3b4e56885f21c7e1f65ee9",
+          "Name": "method",
+          "Description": "The string that represents the http method.\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f296fa2ef8274e01aa31222a242402d3",
+          "Name": "var",
+          "Description": "The WebRequest updated with set method if input was valid, the unchanged WebRequest otherwise.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Sets the HTTP method to use for the request. Valid input : GET, DELETE, HEAD, OPTIONS, POST, PUT, MERGE Note : input is not case-sensitive.\n\nWebRequest.SetMethod (method: string): var"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "POST",
+      "Id": "026d75282bbc414f9be30917deeec944",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f6a54ae2fd6240f08daaa1abf88a68af",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.Execute@var",
+      "Id": "303c13bff51d47d8ac32f8075e83c969",
+      "Inputs": [
+        {
+          "Id": "82a26c2207654de8aa243b6b2e979063",
+          "Name": "request",
+          "Description": "The web request to execute.\n\nvar",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9cd2a1f729444687ae33ed8467cd1e2d",
+          "Name": "var",
+          "Description": "The response from the server as a WebResponse object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Executes a WebRequest and returns the response from the server.\n\nWebRequest.Execute (request: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.AddHeader@string,string",
+      "Id": "c41668c3693b4538b9af9b34bf5e46e7",
+      "Inputs": [
+        {
+          "Id": "0f81ad94e4544e20b4ef7805b4fc2534",
+          "Name": "webRequest",
+          "Description": "DynaWeb.WebRequest",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e545c9858b8447d581a7b4f6e1a9c95b",
+          "Name": "name",
+          "Description": "Name of the header to add\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "31f778634c764539b18d81be36116c9b",
+          "Name": "value",
+          "Description": "Value of the header to add\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ca9b06ace6054b45aebfc2e0f9691e8b",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Shortcut to AddParameter(name, value, HttpHeader)\n\nWebRequest.AddHeader (name: string, value: string): var"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "application/json",
+      "Id": "2a398a00171e47c3a009286d25db33ba",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9abcbe61446246fb87dbf857ec56c81b",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Content-Type",
+      "Id": "978c85808d1e402280a4995a10d26183",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ce3bb10aa0674ed384ac224909aa21ad",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.AddJsonBody@var",
+      "Id": "26da0032206c4652b0c12c0db04aa68c",
+      "Inputs": [
+        {
+          "Id": "599311e7a9034c30a8d96a1990228732",
+          "Name": "webRequest",
+          "Description": "DynaWeb.WebRequest",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2a1e75f3067b4c179c5d02a37b309380",
+          "Name": "obj",
+          "Description": "The object to serialize\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "32dadddfe6b94bcd890a7aea271106ae",
+          "Name": "var",
+          "Description": "This request",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Serializes obj to JSON format and adds it to the request body.\n\nWebRequest.AddJsonBody (obj: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "ngrok+\"/pix64json\";",
+      "Id": "002720cba4fb41e996eb0d229b1fd15d",
+      "Inputs": [
+        {
+          "Id": "5cc812ac73e3467c833cffe6e8715b2b",
+          "Name": "ngrok",
+          "Description": "ngrok",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fb9da0c27f5a42edac380566402fecc8",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.WatchImageCore, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "9d0567a4cb9f443d8716eea3a12ec337",
+      "Inputs": [
+        {
+          "Id": "e6b3c6c5b317451892026df30dea4b80",
+          "Name": "image",
+          "Description": "image",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0c96472b5e4f4eb7a8252185d4e0d83c",
+          "Name": "image",
+          "Description": "image",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Previews an image"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\nimport binascii\r\nclr.AddReference(\"DSCoreNodes\")\r\nimport DSCore\r\nfrom DSCore import *\r\nimport sys\r\nsys.path.append('C:\\\\Program\\ Files\\ (x86)\\\\IronPython\\ 2.7\\\\Lib')\r\n\r\n\r\n\r\n\r\nBinStr = binascii.a2b_base64(IN[0])\r\n\r\n#https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output\r\n# cwd = dir_path = os.path.dirname(os.path.realpath(__file__))\r\nfilename = 'C:\\\\users\\\\martinno\\\\files\\\\Logotest.png'\r\n\r\n\r\nlogo = open(filename,\"wb\")\r\nlogo.write(BinStr)\r\nlogo.close()\r\nOUT = filename\r\n",
+      "VariableInputPorts": true,
+      "Id": "04c1835122bd4b649743f62a42ae5421",
+      "Inputs": [
+        {
+          "Id": "49093daa2d774a4897ce7f6b89cccaef",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9dca28089fdc449182367eaaddf4b60d",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.Image.ReadFromFile@var",
+      "Id": "82b3deeba56946aebde0d76af2976798",
+      "Inputs": [
+        {
+          "Id": "511fd8852d864192b8762bb95778c923",
+          "Name": "file",
+          "Description": "File object to load image from.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3df9ab4d8db04c6a96990fd9926b509e",
+          "Name": "image",
+          "Description": "Image",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Loads the file as a bitmap.\n\nImage.ReadFromFile (file: var): var"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "143f1d27cd3144a6ab98bd6551eb0731",
+      "Inputs": [
+        {
+          "Id": "27c94f4fabd74f0a9eae11d6fd86bb32",
+          "Name": "path",
+          "Description": "Path to the file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7632082662124681bec8500716e2aefb",
+          "Name": "file",
+          "Description": "File object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a file object from a path."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\nimport binascii\r\nclr.AddReference(\"DSCoreNodes\")\r\nimport DSCore\r\nfrom DSCore import *\r\nimport sys\r\nsys.path.append('C:\\\\Program\\ Files\\ (x86)\\\\IronPython\\ 2.7\\\\Lib')\r\n\r\nimage_data = open(IN[0], \"r\").read()\r\n# base64 = binascii.b2a_base64(image_data)\r\n\r\nbbase64 = binascii.b2a_base64(image_data)\r\n\r\nOUT = bbase64",
+      "VariableInputPorts": true,
+      "Id": "af2be612b72b4bdf8f4c09b1b5a081e4",
+      "Inputs": [
+        {
+          "Id": "17006ad9178d4c6f9d9805b99f3863a0",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f05c799a174441dcb562945d8d37710d",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "b6e79f53954041079bdc4cbd51e31bca",
+      "Inputs": [
+        {
+          "Id": "76397de70c304e62878a6e84d5282f2a",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1770b9cc92124bde945bb69d80d285ac",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "C:\\Users\\martinno\\files\\flower.png",
+      "InputValue": ".\\flower.png",
+      "NodeType": "ExtensionNode",
+      "Id": "27e08545c40c4c7e91172d0ae97372af",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3dd38725b67d4d858e6211348a6d6900",
+          "Name": "",
+          "Description": "Filename",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its filename"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.Image.ReadFromFile@var",
+      "Id": "98f2bca658eb476e8840f2511a0427e6",
+      "Inputs": [
+        {
+          "Id": "6e1d562327b44861b2f8ec69c6a26286",
+          "Name": "file",
+          "Description": "File object to load image from.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "07b5b45912d4479e9bacbb0aebab4694",
+          "Name": "image",
+          "Description": "Image",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Loads the file as a bitmap.\n\nImage.ReadFromFile (file: var): var"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "a285da2e3d6245d4968c2b24486c29eb",
+      "Inputs": [
+        {
+          "Id": "9ac25fbd023646ca9e300225ba4c5896",
+          "Name": "path",
+          "Description": "Path to the file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ec0ba4b96b0b475da2ed9b179485493f",
+          "Name": "file",
+          "Description": "File object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a file object from a path."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.WatchImageCore, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "c9c0b4a6095f4666b4bb6ba46c0c6f9b",
+      "Inputs": [
+        {
+          "Id": "ee8e0145002848a4aee7de8d611c13ab",
+          "Name": "image",
+          "Description": "image",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "374f8f563f75486ca1b87d70214f29dc",
+          "Name": "image",
+          "Description": "image",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Previews an image"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "c61387e71d854db5af56117b6006651c",
+      "Inputs": [
+        {
+          "Id": "dbcf05d440c84856ab17024f47a82ace",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b5e8a9bc7da84e828385ef87d3913c12",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.Cookies",
+      "Id": "400034ec5e3b4b4d930fcf8c07e0b39a",
+      "Inputs": [
+        {
+          "Id": "633fba6e9c204137807f40faae25a659",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0122cad88a0b41c2b47e81e8a75c8f23",
+          "Name": "string[][]",
+          "Description": "string[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.Cookies: string[][]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "http://5cfb27d8.ngrok.io",
+      "Id": "70402746dcbf4c3dbffa93e7ed6a5f98",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ba9c013a99b74fd98e41f9edce6ba612",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "4f37d3e97a4a4198a7761c0228847271",
+      "Inputs": [
+        {
+          "Id": "08e9776df78c460085d1fae1cfb349e3",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "42f30587d7d54d8eb42e1421a8ef5d3c",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.Headers",
+      "Id": "a5c74889adcc43f4a5d7cc2f2801ce1c",
+      "Inputs": [
+        {
+          "Id": "7ee08533edbe48e0b5d8fd1029574f7b",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cab3b4feae2144788b70f865b3b16125",
+          "Name": "string[][]",
+          "Description": "string[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.Headers: string[][]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "POST",
+      "Id": "71387da676444937a9f81283f790e7e4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0f4daab8da984b9db6c4520c3292fbdd",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.ByUrl@string",
+      "Id": "757e2c714c3d47fd8c3325cdb4dcf3b7",
+      "Inputs": [
+        {
+          "Id": "1c3ee27e788b414ca490391935a4911e",
+          "Name": "url",
+          "Description": "The URL to send the request to.\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1e0c596a8f394bc2afadcaca6c1b3d4c",
+          "Name": "WebRequest",
+          "Description": "The request object, ready for execution.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Build a simple GET web request to the specified URL\n\nWebRequest.ByUrl (url: string): WebRequest"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "GET",
+      "Id": "3d2874f78c7e4bb7afe0e47ae3134831",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "704fd19f371c4e9d9c09f54c14f6149e",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.Server",
+      "Id": "4256c81ca4b1485a9b8c1607534e1854",
+      "Inputs": [
+        {
+          "Id": "09c4a8bd8da3495bbbd28f3cae155104",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "64ee13cef7074e4c893ce95f52edeebc",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.Server: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.SetMethod@string",
+      "Id": "e00b06adf3494ceb91c2bc94442cf94f",
+      "Inputs": [
+        {
+          "Id": "82ab9fd4ce88464db58ac92fb994142d",
+          "Name": "webRequest",
+          "Description": "DynaWeb.WebRequest",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cec68ecbd90340d884efedf8b4870b65",
+          "Name": "method",
+          "Description": "The string that represents the http method.\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "55e055371ee4471e832ec27ea716e093",
+          "Name": "var",
+          "Description": "The WebRequest updated with set method if input was valid, the unchanged WebRequest otherwise.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Sets the HTTP method to use for the request. Valid input : GET, DELETE, HEAD, OPTIONS, POST, PUT, MERGE Note : input is not case-sensitive.\n\nWebRequest.SetMethod (method: string): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.ResponseUri",
+      "Id": "aa6fe1c1f6e0478da2f6d8abc6b7701f",
+      "Inputs": [
+        {
+          "Id": "cfbf27db00f44759b7904539cc495efb",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2b991803d6344858bd7079fa8712c02c",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.ResponseUri: var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.StatusDescription",
+      "Id": "9dfba290ba85486b8d93933a1ad23f4b",
+      "Inputs": [
+        {
+          "Id": "fb73fc95dae14717a255af6a97d5391b",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "224c14907f034660bf7cc6fc3c927c29",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.StatusDescription: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"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\";",
+      "Id": "c5c89eafae6747afa68019e78d26f475",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e8cceaacaa24424fa69745aa70a0b019",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Content-Type",
+      "Id": "86d7cc1c3d9b477e88b4613c7f5e3b0f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "25459607a4ee4a709a298b614e1ed919",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "application/json",
+      "Id": "12e326faea59406fb3098fc2ff104781",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5d58cfed2336406f82529c8f334a5424",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.AddHeader@string,string",
+      "Id": "ebea2b6e3ea94da1a2cbfe6d4f9bccdc",
+      "Inputs": [
+        {
+          "Id": "d4c285ee0c5f4c869feaafbb3c6183d8",
+          "Name": "webRequest",
+          "Description": "DynaWeb.WebRequest",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2698f78c98a34fda90ed643eeb0ff7f0",
+          "Name": "name",
+          "Description": "Name of the header to add\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "135a032f25ec431b9fa9da3c8eb05e05",
+          "Name": "value",
+          "Description": "Value of the header to add\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c4c2a4fe682b48f29b3cb78b7660d8a7",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Shortcut to AddParameter(name, value, HttpHeader)\n\nWebRequest.AddHeader (name: string, value: string): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.Time",
+      "Id": "c8b6352d9f83470fa21aaf86fef674c0",
+      "Inputs": [
+        {
+          "Id": "e7228683dbbb4d8e8058d8971c0f00de",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7fa741d4aff54d5788aa20809b8d9a24",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.Time: var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.AddQueryParameter@string,string",
+      "Id": "3174d45b8a9244638bee991c113e1e3c",
+      "Inputs": [
+        {
+          "Id": "331a65a1286d4bf6b60d4f97d87f1865",
+          "Name": "webRequest",
+          "Description": "DynaWeb.WebRequest",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5199024a09024496a716d2b76831052a",
+          "Name": "name",
+          "Description": "Name of the parameter to add\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "425abe4beb8b4e2eb2413341d382599c",
+          "Name": "value",
+          "Description": "Value of the parameter to add\n\nstring",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a4709e6ac3464a5483ac8b5a0cdbf1a8",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Shortcut to AddParameter(name, value, QueryString)\n\nWebRequest.AddQueryParameter (name: string, value: string): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"contentImage\";\nbase64;",
+      "Id": "e7338763f4dd4115a7a64aac9d737dc0",
+      "Inputs": [
+        {
+          "Id": "e8baee2f58fa4595bcf5b2772577e023",
+          "Name": "base64",
+          "Description": "base64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "03c8b51c920d48f49b4211a794fe2191",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "374977a8a4fb456592f2f5ebfd5b0f82",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.ResponseStatus",
+      "Id": "cec0e4a2ce3040ada119ee3f23c691d5",
+      "Inputs": [
+        {
+          "Id": "9d298d934ff540bfa6ca56515931f939",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5bd80a78a4344ff9a25f4fa8188dfda3",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.ResponseStatus: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.StatusCode",
+      "Id": "047a000a55d64c72a5cf088b44b89277",
+      "Inputs": [
+        {
+          "Id": "30d295a77ae2476e8a5fed71cc397041",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "af5f383f0933466bbac02cbd3083d3cb",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.StatusCode: string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "d186a81cfba2478ea98602de30b474b9",
+      "Inputs": [
+        {
+          "Id": "5d2566e28b6b4856bbb56337dc171647",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6d790335b9d345f7956d102ff56e6a6a",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.Content",
+      "Id": "2f50731e25954f0ab8cda737e2df5b8f",
+      "Inputs": [
+        {
+          "Id": "b40e4300a4e44afb8368c8e78f4a5a1c",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "14f1744ffa1a4443abfa80a952d21d2a",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.Content: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebRequest.Execute@var",
+      "Id": "ec7e392870854d32880bcf1a08652ff3",
+      "Inputs": [
+        {
+          "Id": "bd396ad1f3b94301900da1aaecd4b46d",
+          "Name": "request",
+          "Description": "The web request to execute.\n\nvar",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a7a9a1f611cd4355a85fcb8ef79184b8",
+          "Name": "var",
+          "Description": "The response from the server as a WebResponse object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "Executes a WebRequest and returns the response from the server.\n\nWebRequest.Execute (request: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynaWeb.WebResponse.Content",
+      "Id": "1f333422c5964bf282f629cb5ed54940",
+      "Inputs": [
+        {
+          "Id": "b940e3553b8c4a86896ead586a500982",
+          "Name": "webResponse",
+          "Description": "DynaWeb.WebResponse",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f231893c64c84de9b70f0c34c6971a7c",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Shortest",
+      "Description": "WebResponse.Content: string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "3066a7d4776248618695a9238fbf4cf3",
+      "Inputs": [
+        {
+          "Id": "10aa3e9ea12149b4807d5449e7336393",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5b34133129974c81bce3f4fa73315bc6",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "16dcbfb4f58e47bbaba35f4473597884",
+      "End": "c0c96b29d11948d4801a02c5b702dec9",
+      "Id": "6bef46a45f30404ca6639a85f93524b1"
+    },
+    {
+      "Start": "b6143a4ba16a433a84ae84a7be1d084e",
+      "End": "5cc812ac73e3467c833cffe6e8715b2b",
+      "Id": "3d34662acd344471b0abc388b0027e3f"
+    },
+    {
+      "Start": "5f8e4345dbd044259389a5265f21ff9c",
+      "End": "66154a8ff80a4c6db7befe1f709dd7f4",
+      "Id": "a37b7171df3740b7a99d7ab0788ca6a5"
+    },
+    {
+      "Start": "030514ea1152491297cd33fc97a268c3",
+      "End": "49093daa2d774a4897ce7f6b89cccaef",
+      "Id": "135264dc86234da9945442571055ab00"
+    },
+    {
+      "Start": "f296fa2ef8274e01aa31222a242402d3",
+      "End": "599311e7a9034c30a8d96a1990228732",
+      "Id": "b2b8dd60d4314ee78de0b5971e2172eb"
+    },
+    {
+      "Start": "f6a54ae2fd6240f08daaa1abf88a68af",
+      "End": "b64de7ccab3b4e56885f21c7e1f65ee9",
+      "Id": "0f999c3bfa154b6793def52ae933d292"
+    },
+    {
+      "Start": "9cd2a1f729444687ae33ed8467cd1e2d",
+      "End": "42daebefefdd44b883da22824a4658f2",
+      "Id": "6f3c373139b243d9bef4e5f38e0c8e96"
+    },
+    {
+      "Start": "ca9b06ace6054b45aebfc2e0f9691e8b",
+      "End": "82a26c2207654de8aa243b6b2e979063",
+      "Id": "f85fe66e4b5f4c4bb73b4607611a381b"
+    },
+    {
+      "Start": "9abcbe61446246fb87dbf857ec56c81b",
+      "End": "31f778634c764539b18d81be36116c9b",
+      "Id": "8528bc695d784e5f9e9543bec082f9c3"
+    },
+    {
+      "Start": "ce3bb10aa0674ed384ac224909aa21ad",
+      "End": "e545c9858b8447d581a7b4f6e1a9c95b",
+      "Id": "de208cbaca6045639e05438b1ec103b5"
+    },
+    {
+      "Start": "32dadddfe6b94bcd890a7aea271106ae",
+      "End": "0f81ad94e4544e20b4ef7805b4fc2534",
+      "Id": "e811a9b639ae4049b32e856ec2b429e7"
+    },
+    {
+      "Start": "fb9da0c27f5a42edac380566402fecc8",
+      "End": "7a75475ed075427f9a972e90c635b52b",
+      "Id": "bb0f64c38a0641ad8e7f7066d5b3092b"
+    },
+    {
+      "Start": "9dca28089fdc449182367eaaddf4b60d",
+      "End": "27c94f4fabd74f0a9eae11d6fd86bb32",
+      "Id": "bdd7655b9bba4a9e91e0b0ef98e5f600"
+    },
+    {
+      "Start": "3df9ab4d8db04c6a96990fd9926b509e",
+      "End": "e6b3c6c5b317451892026df30dea4b80",
+      "Id": "1b0df1da509947c597fc857aba3bde27"
+    },
+    {
+      "Start": "7632082662124681bec8500716e2aefb",
+      "End": "511fd8852d864192b8762bb95778c923",
+      "Id": "cb029a784d26410d9605d86e225cc435"
+    },
+    {
+      "Start": "f05c799a174441dcb562945d8d37710d",
+      "End": "76397de70c304e62878a6e84d5282f2a",
+      "Id": "0c755258ab874cd7b0a80048f4d034bf"
+    },
+    {
+      "Start": "1770b9cc92124bde945bb69d80d285ac",
+      "End": "2a1e75f3067b4c179c5d02a37b309380",
+      "Id": "45a0edd3372242f3af51299d8940f447"
+    },
+    {
+      "Start": "3dd38725b67d4d858e6211348a6d6900",
+      "End": "9ac25fbd023646ca9e300225ba4c5896",
+      "Id": "e645fad8f04e45d9ae975b418ce01cc3"
+    },
+    {
+      "Start": "3dd38725b67d4d858e6211348a6d6900",
+      "End": "17006ad9178d4c6f9d9805b99f3863a0",
+      "Id": "8219d0fbdd7c4e53a53d1b0428a9a172"
+    },
+    {
+      "Start": "07b5b45912d4479e9bacbb0aebab4694",
+      "End": "ee8e0145002848a4aee7de8d611c13ab",
+      "Id": "66cf06413b284799bbf0c91cf3d2c73d"
+    },
+    {
+      "Start": "ec0ba4b96b0b475da2ed9b179485493f",
+      "End": "6e1d562327b44861b2f8ec69c6a26286",
+      "Id": "7b5702d533104ddb956b4015ef6b73fb"
+    },
+    {
+      "Start": "0122cad88a0b41c2b47e81e8a75c8f23",
+      "End": "dbcf05d440c84856ab17024f47a82ace",
+      "Id": "c9e82b7500134856911cc7bfef5b3d0e"
+    },
+    {
+      "Start": "ba9c013a99b74fd98e41f9edce6ba612",
+      "End": "1c3ee27e788b414ca490391935a4911e",
+      "Id": "d7672e6b0f9d424fa7ac6ab6db167d3c"
+    },
+    {
+      "Start": "cab3b4feae2144788b70f865b3b16125",
+      "End": "08e9776df78c460085d1fae1cfb349e3",
+      "Id": "7f8692f339ef406a8b8b6d008b4534ff"
+    },
+    {
+      "Start": "1e0c596a8f394bc2afadcaca6c1b3d4c",
+      "End": "82ab9fd4ce88464db58ac92fb994142d",
+      "Id": "9e8710cdba904dfd82d2e05d3a9ede68"
+    },
+    {
+      "Start": "1e0c596a8f394bc2afadcaca6c1b3d4c",
+      "End": "bd396ad1f3b94301900da1aaecd4b46d",
+      "Id": "0254b7b6c1914850b15c946ba5d32d1d"
+    },
+    {
+      "Start": "704fd19f371c4e9d9c09f54c14f6149e",
+      "End": "cec68ecbd90340d884efedf8b4870b65",
+      "Id": "36c2f49dd74643598d0c48647cd70172"
+    },
+    {
+      "Start": "55e055371ee4471e832ec27ea716e093",
+      "End": "331a65a1286d4bf6b60d4f97d87f1865",
+      "Id": "dbcade9a6cef4bc1be95e2bda9a0b712"
+    },
+    {
+      "Start": "e8cceaacaa24424fa69745aa70a0b019",
+      "End": "e8baee2f58fa4595bcf5b2772577e023",
+      "Id": "ee9e6e1caeea48dfba02ee109874ba15"
+    },
+    {
+      "Start": "25459607a4ee4a709a298b614e1ed919",
+      "End": "2698f78c98a34fda90ed643eeb0ff7f0",
+      "Id": "e16d8992813b4cb69b04d951daa1438f"
+    },
+    {
+      "Start": "5d58cfed2336406f82529c8f334a5424",
+      "End": "135a032f25ec431b9fa9da3c8eb05e05",
+      "Id": "dac749942ffe413f9baae349c2df91b9"
+    },
+    {
+      "Start": "a4709e6ac3464a5483ac8b5a0cdbf1a8",
+      "End": "d4c285ee0c5f4c869feaafbb3c6183d8",
+      "Id": "c4f82461656b4c71943c7026f977374b"
+    },
+    {
+      "Start": "03c8b51c920d48f49b4211a794fe2191",
+      "End": "5199024a09024496a716d2b76831052a",
+      "Id": "c668025b477646fcb98f533abc01a01b"
+    },
+    {
+      "Start": "374977a8a4fb456592f2f5ebfd5b0f82",
+      "End": "425abe4beb8b4e2eb2413341d382599c",
+      "Id": "e37749d9651b4fdd9508380c0b6ccfbd"
+    },
+    {
+      "Start": "14f1744ffa1a4443abfa80a952d21d2a",
+      "End": "5d2566e28b6b4856bbb56337dc171647",
+      "Id": "722b0aab88204fd09bf68260c0f3f885"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "e7228683dbbb4d8e8058d8971c0f00de",
+      "Id": "2da09082d0424ed0a065a9cf7db54f3c"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "633fba6e9c204137807f40faae25a659",
+      "Id": "be15434681d345d786248f6bb4265231"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "7ee08533edbe48e0b5d8fd1029574f7b",
+      "Id": "2052a150365644f297136462c5c5fe0f"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "09c4a8bd8da3495bbbd28f3cae155104",
+      "Id": "a22d51c9ace54a46865e93aec4738d46"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "cfbf27db00f44759b7904539cc495efb",
+      "Id": "82a9da080a294e909909517be25f2fa6"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "fb73fc95dae14717a255af6a97d5391b",
+      "Id": "4c1fdb95104b46ea8efc6baee0947188"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "30d295a77ae2476e8a5fed71cc397041",
+      "Id": "31cbebeaea9a471b89577277a67b7dee"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "9d298d934ff540bfa6ca56515931f939",
+      "Id": "6cf2ee10fde543b5a45a4c02ebb43e6b"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "b40e4300a4e44afb8368c8e78f4a5a1c",
+      "Id": "9dd078f54bb84c92aa91794cfc0784c9"
+    },
+    {
+      "Start": "a7a9a1f611cd4355a85fcb8ef79184b8",
+      "End": "b940e3553b8c4a86896ead586a500982",
+      "Id": "a9e52c1acaac49eaad79ac8d694f02b7"
+    },
+    {
+      "Start": "f231893c64c84de9b70f0c34c6971a7c",
+      "End": "10aa3e9ea12149b4807d5449e7336393",
+      "Id": "e9413bff08284c509d47a15b7a3faa95"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -9.6675435535619449,
+      "EyeY": 58.32106605745512,
+      "EyeZ": 61.056489941707191,
+      "LookX": 10.258749627998274,
+      "LookY": 7.2601700010429058,
+      "LookZ": -61.704923665634375,
+      "UpX": -0.053394420613186992,
+      "UpY": 0.9455185755993174,
+      "UpZ": 0.32115986524474238
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.ByUrl",
+        "Id": "f7efab2c99a34dc686f4bccf702dfec6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1976.6879014400145,
+        "Y": -748.09755321543958
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "a53001d6315643f398aa0c5093035df4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1487.4047578930092,
+        "Y": -731.82356124819967
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.Content",
+        "Id": "e2dea4f9a69e41d9967e41a4d7f22b2c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3351.3083864259306,
+        "Y": -755.769703157328
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "44b3d19da21c45e6b83a96f4aae088a6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2841.7991137254794,
+        "Y": -24.667956524083593
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.SetMethod",
+        "Id": "0106f68db94c4f7cad41e402ed896c4d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2306.8962880388112,
+        "Y": -756.892006945983
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "026d75282bbc414f9be30917deeec944",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2227.5000358369671,
+        "Y": -709.23385881332592
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.Execute",
+        "Id": "303c13bff51d47d8ac32f8075e83c969",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3125.5008107596786,
+        "Y": -753.91476497314738
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.AddHeader",
+        "Id": "c41668c3693b4538b9af9b34bf5e46e7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2865.6174977200858,
+        "Y": -771.06496287815321
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "2a398a00171e47c3a009286d25db33ba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2868.3574086785484,
+        "Y": -904.16227939233011
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "978c85808d1e402280a4995a10d26183",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2870.0624641779341,
+        "Y": -836.97668995547622
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.AddJsonBody",
+        "Id": "26da0032206c4652b0c12c0db04aa68c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2578.3981998251261,
+        "Y": -776.35132533030094
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "002720cba4fb41e996eb0d229b1fd15d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1708.8466740198728,
+        "Y": -744.9136466306029
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch Image",
+        "Id": "9d0567a4cb9f443d8716eea3a12ec337",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3182.498086393889,
+        "Y": -512.00941555672387
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "04c1835122bd4b649743f62a42ae5421",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3162.4313213255018,
+        "Y": -12.70585659033452
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Image.ReadFromFile",
+        "Id": "82b3deeba56946aebde0d76af2976798",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3434.4194519330404,
+        "Y": -15.621881910824641
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File From Path",
+        "Id": "143f1d27cd3144a6ab98bd6551eb0731",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3311.1290878714772,
+        "Y": -14.591908147091885
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "af2be612b72b4bdf8f4c09b1b5a081e4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1979.6814703469379,
+        "Y": -504.7150929828689
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch base64 input image",
+        "Id": "b6e79f53954041079bdc4cbd51e31bca",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2138.415148580445,
+        "Y": -509.1096245480536
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File Path",
+        "Id": "27e08545c40c4c7e91172d0ae97372af",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1494.3311961353836,
+        "Y": -469.26497360147835
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Image.ReadFromFile",
+        "Id": "98f2bca658eb476e8840f2511a0427e6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1769.7202163185104,
+        "Y": -245.26984809121927
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File From Path",
+        "Id": "a285da2e3d6245d4968c2b24486c29eb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1631.7873295455177,
+        "Y": -243.16051321576549
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch Image",
+        "Id": "c9c0b4a6095f4666b4bb6ba46c0c6f9b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1986.4858573162514,
+        "Y": -363.92264389635432
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "c61387e71d854db5af56117b6006651c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2659.08264663518,
+        "Y": 2905.3694457047
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.Cookies",
+        "Id": "400034ec5e3b4b4d930fcf8c07e0b39a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2363.18085088491,
+        "Y": 2905.3694457047
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "70402746dcbf4c3dbffa93e7ed6a5f98",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 194.660354431654,
+        "Y": 1354.6690882242
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "4f37d3e97a4a4198a7761c0228847271",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2659.38298428697,
+        "Y": 2532.22608712614
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.Headers",
+        "Id": "a5c74889adcc43f4a5d7cc2f2801ce1c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2359.88240179007,
+        "Y": 2532.22608712614
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "71387da676444937a9f81283f790e7e4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 727.348217173873,
+        "Y": 1461.29615630662
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.ByUrl",
+        "Id": "757e2c714c3d47fd8c3325cdb4dcf3b7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 448.107855081702,
+        "Y": 1342.44201960302
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "3d2874f78c7e4bb7afe0e47ae3134831",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 726.131111570463,
+        "Y": 1400.10754092054
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.Server",
+        "Id": "4256c81ca4b1485a9b8c1607534e1854",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2359.88240179007,
+        "Y": 2411.78824547351
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.SetMethod",
+        "Id": "e00b06adf3494ceb91c2bc94442cf94f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 812.847552880533,
+        "Y": 1348.5763217898
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.ResponseUri",
+        "Id": "aa6fe1c1f6e0478da2f6d8abc6b7701f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2359.88240179007,
+        "Y": 2291.35040382087
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.StatusDescription",
+        "Id": "9dfba290ba85486b8d93933a1ad23f4b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2359.88240179007,
+        "Y": 2170.91256216823
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "c5c89eafae6747afa68019e78d26f475",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 767.152821700966,
+        "Y": 1563.74310850362
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "86d7cc1c3d9b477e88b4613c7f5e3b0f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1664.27096941328,
+        "Y": 1552.66358596049
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "12e326faea59406fb3098fc2ff104781",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1666.00680467865,
+        "Y": 1612.88251575325
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.AddHeader",
+        "Id": "ebea2b6e3ea94da1a2cbfe6d4f9bccdc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1871.36152138846,
+        "Y": 1571.23030634816
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.Time",
+        "Id": "c8b6352d9f83470fa21aaf86fef674c0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2897.36000706707,
+        "Y": 1661.82759396655
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.AddQueryParameter",
+        "Id": "3174d45b8a9244638bee991c113e1e3c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1386.81263654601,
+        "Y": 1112.85658304454
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "e7338763f4dd4115a7a64aac9d737dc0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1156.3311105526,
+        "Y": 1179.28815545132
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.ResponseStatus",
+        "Id": "cec0e4a2ce3040ada119ee3f23c691d5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2359.88240179007,
+        "Y": 1930.03687886295
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.StatusCode",
+        "Id": "047a000a55d64c72a5cf088b44b89277",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2359.88240179007,
+        "Y": 2050.47472051559
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "d186a81cfba2478ea98602de30b474b9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2663.12249526614,
+        "Y": 1809.59903721031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.Content",
+        "Id": "2f50731e25954f0ab8cda737e2df5b8f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2359.88240179007,
+        "Y": 1809.59903721031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebRequest.Execute",
+        "Id": "ec7e392870854d32880bcf1a08652ff3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 2026.54241408569,
+        "Y": 1307.39828008317
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WebResponse.Content",
+        "Id": "1f333422c5964bf282f629cb5ed54940",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2358.4286984831,
+        "Y": 1314.44365140441
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "3066a7d4776248618695a9238fbf4cf3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2788.32958982796,
+        "Y": 1314.44365140441
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "c5fdacc120344f289ddf9c757f086fca",
+        "Title": "Response",
+        "Nodes": [
+          "1f333422c5964bf282f629cb5ed54940",
+          "3066a7d4776248618695a9238fbf4cf3",
+          "c59296a053c844c98699c1ae8d2ad9ba"
+        ],
+        "Left": 2346.19785889839,
+        "Top": 1268.44365140441,
+        "Width": 531.13173092956958,
+        "Height": 488.05985532077989,
+        "FontSize": 30.0,
+        "InitialTop": 1314.44365140441,
+        "InitialHeight": 321.55985532077989,
+        "TextblockHeight": 36.0,
+        "Background": "#FFFF7BAC"
+      },
+      {
+        "Id": "5e2e68aec46e4e5ba649178ee8fda84d",
+        "Title": "Response metadata",
+        "Nodes": [
+          "2f50731e25954f0ab8cda737e2df5b8f",
+          "d186a81cfba2478ea98602de30b474b9",
+          "047a000a55d64c72a5cf088b44b89277",
+          "9dfba290ba85486b8d93933a1ad23f4b",
+          "cec0e4a2ce3040ada119ee3f23c691d5",
+          "aa6fe1c1f6e0478da2f6d8abc6b7701f",
+          "4256c81ca4b1485a9b8c1607534e1854",
+          "a5c74889adcc43f4a5d7cc2f2801ce1c",
+          "400034ec5e3b4b4d930fcf8c07e0b39a",
+          "4f37d3e97a4a4198a7761c0228847271",
+          "c61387e71d854db5af56117b6006651c"
+        ],
+        "Left": 2349.88240179007,
+        "Top": 1763.59903721031,
+        "Width": 402.24009347606989,
+        "Height": 1235.77040849439,
+        "FontSize": 30.0,
+        "InitialTop": 1809.59903721031,
+        "InitialHeight": 1240.77040849439,
+        "TextblockHeight": 36.0,
+        "Background": "#FFFFAA45"
+      },
+      {
+        "Id": "f65494fa8b864a6896809a1677df679e",
+        "Title": "Time it took for Request to execute",
+        "Nodes": [
+          "c8b6352d9f83470fa21aaf86fef674c0"
+        ],
+        "Left": 2887.36000706707,
+        "Top": 1543.82759396655,
+        "Width": 242.0,
+        "Height": 211.0,
+        "FontSize": 30.0,
+        "InitialTop": 1661.82759396655,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 108.0,
+        "Background": "#FFFFAA45"
+      },
+      {
+        "Id": "d66c1a247d064c6ca3761ca307c33c87",
+        "Title": "Set HTTP method\r\n",
+        "Nodes": [
+          "e00b06adf3494ceb91c2bc94442cf94f",
+          "3d2874f78c7e4bb7afe0e47ae3134831",
+          "75c1734ae6334856bd97499652089f5a"
+        ],
+        "Left": 715.707978527257,
+        "Top": 1088.1013919816,
+        "Width": 360.50000000000011,
+        "Height": 380.00614893894,
+        "FontSize": 30.0,
+        "InitialTop": 1170.1013919816,
+        "InitialHeight": 375.00614893894,
+        "TextblockHeight": 72.0,
+        "Background": "#FF71C6A8"
+      },
+      {
+        "Id": "05ebdc130cef4885b539ccad98ba2ffb",
+        "Title": "Adding a parameter to URL\r\n",
+        "Nodes": [
+          "e7338763f4dd4115a7a64aac9d737dc0",
+          "3174d45b8a9244638bee991c113e1e3c"
+        ],
+        "Left": 1146.3311105526,
+        "Top": 1030.85658304454,
+        "Width": 472.98152599341006,
+        "Height": 250.43157240678011,
+        "FontSize": 30.0,
+        "InitialTop": 1112.85658304454,
+        "InitialHeight": 211.43157240678011,
+        "TextblockHeight": 72.0,
+        "Background": "#FF71C6A8"
+      },
+      {
+        "Id": "1916b055359f4d069b3daef5ab303d49",
+        "Title": "Tell the server we're sending JSON data",
+        "Nodes": [
+          "ebea2b6e3ea94da1a2cbfe6d4f9bccdc",
+          "86d7cc1c3d9b477e88b4613c7f5e3b0f",
+          "12e326faea59406fb3098fc2ff104781",
+          "6b8e2a524c304056ae334468885924ca"
+        ],
+        "Left": 1654.27096941328,
+        "Top": 1470.66358596049,
+        "Width": 439.59055197518,
+        "Height": 270.93692209775986,
+        "FontSize": 30.0,
+        "InitialTop": 1552.66358596049,
+        "InitialHeight": 269.93692209775986,
+        "TextblockHeight": 72.0,
+        "Background": "#FF71C6A8"
+      },
+      {
+        "Id": "f6837dcbdf5e451b91d759610a5f9afb",
+        "Title": "Execute the request",
+        "Nodes": [
+          "ec7e392870854d32880bcf1a08652ff3"
+        ],
+        "Left": 2016.54241408569,
+        "Top": 1225.39828008317,
+        "Width": 204.5,
+        "Height": 175.0,
+        "FontSize": 30.0,
+        "InitialTop": 1307.39828008317,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 72.0,
+        "Background": "#FF71C6A8"
+      },
+      {
+        "Id": "c65ac0b3cbc24b8abc8852e8217670f4",
+        "Title": "Web Request to pix2pix-tensorflow Docker Service (using DynaWeb)",
+        "Nodes": [
+          "f7efab2c99a34dc686f4bccf702dfec6",
+          "a53001d6315643f398aa0c5093035df4",
+          "e2dea4f9a69e41d9967e41a4d7f22b2c",
+          "0106f68db94c4f7cad41e402ed896c4d",
+          "026d75282bbc414f9be30917deeec944",
+          "303c13bff51d47d8ac32f8075e83c969",
+          "c41668c3693b4538b9af9b34bf5e46e7",
+          "2a398a00171e47c3a009286d25db33ba",
+          "978c85808d1e402280a4995a10d26183",
+          "26da0032206c4652b0c12c0db04aa68c",
+          "002720cba4fb41e996eb0d229b1fd15d"
+        ],
+        "Left": 1477.4047578930092,
+        "Top": -957.16227939233011,
+        "Width": 2121.4036285329212,
+        "Height": 331.0973165141769,
+        "FontSize": 36.0,
+        "InitialTop": -904.16227939233011,
+        "InitialHeight": 308.0973165141769,
+        "TextblockHeight": 43.0,
+        "Background": "#FFD8D8D8"
+      },
+      {
+        "Id": "0e7fc705daa84940b2774284b2ac17c8",
+        "Title": "Serialize Input Image to base64",
+        "Nodes": [
+          "af2be612b72b4bdf8f4c09b1b5a081e4",
+          "b6e79f53954041079bdc4cbd51e31bca",
+          "27e08545c40c4c7e91172d0ae97372af",
+          "98f2bca658eb476e8840f2511a0427e6",
+          "a285da2e3d6245d4968c2b24486c29eb",
+          "c9c0b4a6095f4666b4bb6ba46c0c6f9b"
+        ],
+        "Left": 1484.3311961353836,
+        "Top": -562.1096245480536,
+        "Width": 954.08395244506141,
+        "Height": 676.18698065169929,
+        "FontSize": 36.0,
+        "InitialTop": -509.1096245480536,
+        "InitialHeight": 653.18698065169929,
+        "TextblockHeight": 43.0,
+        "Background": "#FFD8D8D8"
+      },
+      {
+        "Id": "376d953f3ed3477ca800c7bb3e1105f8",
+        "Title": "Deserialize Output Image from base64",
+        "Nodes": [
+          "44b3d19da21c45e6b83a96f4aae088a6",
+          "9d0567a4cb9f443d8716eea3a12ec337",
+          "04c1835122bd4b649743f62a42ae5421",
+          "82b3deeba56946aebde0d76af2976798",
+          "143f1d27cd3144a6ab98bd6551eb0731"
+        ],
+        "Left": 2831.7991137254794,
+        "Top": -565.00941555672387,
+        "Width": 787.120338207561,
+        "Height": 645.30355896638935,
+        "FontSize": 36.0,
+        "InitialTop": -512.00941555672387,
+        "InitialHeight": 622.30355896638923,
+        "TextblockHeight": 43.0,
+        "Background": "#FFD8D8D8"
+      },
+      {
+        "Id": "41c0cd70926541b2a92aee4f65bf17cc",
+        "Title": "The \"WebRequest.ByURL\" node in the DynaWeb Dynamo library builds a web request to the URL provided.\r\n\r\nThis node also defaults to building a GET request, but this can be overriden after the request is built using the \"WebRequest.SetMethod\" node, see the more advanced samples.",
+        "Nodes": [],
+        "Left": 119.150578005734,
+        "Top": 1459.59198290722,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "934bf4dccfd642108e0bf2b8c8e62af4",
+        "Title": "I suggest using something like RequestBin to test out the package and web responses.\r\n\r\nhttps://requestb.in/\r\n\r\nVisit the site to generate a fresh URL, this one will likely be out of date.\r\n\r\nUsing such a service will allow you to see how different parts of the request would be received by the server.\r\n\r\nI also recommend using the Postman app (https://www.getpostman.com) to figure out how to interact with a REST API first. Once you have it working in Postman, replicating those settings using DynaWeb will be trivial since the nomenclature is pretty much the same.",
+        "Nodes": [],
+        "Left": -215.378255127327,
+        "Top": 1455.61856111286,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "7d5ed7f8b1134114996daf8239cfb0aa",
+        "Title": "The \"WebRequest.Execute\" node in the DynaWeb Dynamo library simply executes the web request it is given. It expects a valid WebRequest as input.",
+        "Nodes": [],
+        "Left": 412.602460331067,
+        "Top": 1459.59198290722,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "75c1734ae6334856bd97499652089f5a",
+        "Title": "The HTTP methods supported by DynaWeb are :                    \r\n\r\nGET\r\nPOST\r\nPUT\r\nDELETE\r\nHEAD\r\nOPTIONS\r\nPATCH\r\nMERGE",
+        "Nodes": [],
+        "Left": 725.707978527257,
+        "Top": 1170.1013919816,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "6b8e2a524c304056ae334468885924ca",
+        "Title": "Most REST API services will not only return this header, but also require it.",
+        "Nodes": [],
+        "Left": 1821.0051724022,
+        "Top": 1682.60050805825,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "c59296a053c844c98699c1ae8d2ad9ba",
+        "Title": "The Execute node from the DynaWeb package returns a WebResponse object. This object contains all the metadata of the response as well as the content itself.\r\n\r\nThe WebResponse.Content node returns the actual content returned from the server.\r\n\r\nIn this example, the server does not return HTML to us, but a simple ok.\r\n\r\nPlease see the following image in the samples folder to get a sense of what the server will be receiving when this request is executed :\r\n\r\n6 - Complex POST request server-side.PNG",
+        "Nodes": [],
+        "Left": 2356.19785889839,
+        "Top": 1496.00350672519,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -423.75758672836537,
+    "Y": 632.885454494603,
+    "Zoom": 0.48483507112888191
+  }
+}
